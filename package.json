@@ -2,9 +2,11 @@
   "name": "vue-focus-outside",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clear": "rm -rf lib/ && clear",
+    "build": "npm run clear && rollup -c"
   },
   "repository": {
     "type": "git",
