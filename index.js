@@ -5,12 +5,15 @@ export default {
     bind(el, binding.value)
   },
 
-  unbind (el, binding) {
-    unbind(el, binding.value)
+  unbind (el) {
+    unbind(el)
   },
 
   update (el, binding) {
-    if (binding.value === binding.oldValue) return
-    bind(el, binding.value)
+    if (binding.value === binding.oldValue) {
+      unbind(el)
+    } else {
+      bind(el, binding.value)
+    }
   }
 }
