@@ -1,6 +1,6 @@
 {
   "name": "vue-focus-outside",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -33,6 +33,6 @@
     "uglify-es": "^3.1.10"
   },
   "dependencies": {
-    "focus-outside": "^0.1.1"
+    "focus-outside": "^0.1.2"
   }
 }
