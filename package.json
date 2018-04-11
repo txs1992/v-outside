@@ -33,6 +33,6 @@
     "uglify-es": "^3.1.10"
   },
   "dependencies": {
-    "focus-outside": "^0.1.1"
+    "focus-outside": "^0.1.2"
   }
 }

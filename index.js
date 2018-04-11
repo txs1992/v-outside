@@ -1,19 +1,22 @@
-import { bind, unbind } from 'focus-outside'
+import {
+  bind as focusBind,
+  unbind as focusUnbind
+} from 'focus-outside'
 
 export default {
   bind (el, binding) {
-    bind(el, binding.value)
+    focusBind(el, binding.value)
   },
 
-  unbind (el) {
-    unbind(el)
+  unbind (el, binding) {
+    focusUnbind(el, binding.value)
   },
 
   update (el, binding) {
     if (binding.value === binding.oldValue) {
-      unbind(el)
+      focusUnbind(el, binding.value)
     } else {
-      bind(el, binding.value)
+      focusBind(el, binding.value)
     }
   }
 }
