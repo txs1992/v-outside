@@ -12,11 +12,9 @@ export default {
     focusUnbind(el, binding.value)
   },
 
-  update (el, binding) {
-    if (binding.value === binding.oldValue) {
-      focusUnbind(el, binding.value)
-    } else {
-      focusBind(el, binding.value)
-    }
+  update (el, { value, oldValue }) {
+    if (value === oldValue) return
+    focusUnbind(el, oldValue)
+    focusBind(el, value)
   }
 }
