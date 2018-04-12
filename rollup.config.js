@@ -5,10 +5,12 @@ import commonjs from 'rollup-plugin-commonjs'
 import resolve from 'rollup-plugin-node-resolve'
 
 export default {
-  name: 'VueFocusOutside',
-  entry: 'index.js',
-  format: 'umd',
-  dest: 'lib/index.js',
+  input: 'index.js',
+  output: {
+    file: 'lib/index.js',
+    name: 'VueFocusOutside',
+    format: 'umd'
+  },
   plugins: [
     eslint({
       throwError: true,
