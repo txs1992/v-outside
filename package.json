@@ -1,35 +1,29 @@
 {
-  "name": "vue-focus-outside",
+  "name": "v-outside",
   "version": "0.2.1",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "clear": "rm -rf lib/ && clear",
-    "build": "npm run clear && rollup -c"
+    "clear": "rm -rf dist/ && rm -rf bundle.js",
+    "build": "yarn clear && node build/config.js && cp -r typings/ dist/typings",
+    "lint": "eslint --ext .js,.vue packages",
+    "test": "yarn lint",
+    "format": "prettier --config ./.prettierrc.yaml --write './**/*.{js,vue,css,scss}'",
+    "precommit": "pretty-quick --staged",
+    "dev": "yarn lint && yarn format && webpack-dev-server --inline --progress --config webpack.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1969290646/vue-focus-outside.git"
+    "url": "git+https://github.com/txs1992/v-outside.git"
   },
   "author": "MT",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/1969290646/vue-focus-outside/issues"
+    "url": "https://github.com/txs1992/v-outside/issues"
   },
-  "homepage": "https://github.com/1969290646/vue-focus-outside#readme",
+  "homepage": "https://github.com/txs1992/v-outside#readme",
   "devDependencies": {
-    "eslint": "^4.11.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "rollup": "^0.51.8",
-    "rollup-plugin-commonjs": "^8.2.6",
-    "rollup-plugin-eslint": "^4.0.0",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-uglify": "^2.0.1",
-    "uglify-es": "^3.1.10"
+    "webpack": "^4.43.0"
   },
   "dependencies": {
     "focus-outside": "^0.3.1"
