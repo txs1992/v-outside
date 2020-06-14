@@ -23,7 +23,11 @@
   },
   "homepage": "https://github.com/txs1992/v-outside#readme",
   "devDependencies": {
-    "webpack": "^4.43.0"
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "vue": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {
     "focus-outside": "^0.3.1"
