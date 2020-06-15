@@ -1,33 +1,33 @@
-const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 function resolve(dir) {
-  return path.resolve(__dirname, "..", dir);
+  return path.resolve(__dirname, '..', dir)
 }
 
 module.exports = {
-  mode: "development",
+  mode: 'development',
   entry: {
-    app: "./src/main.js",
+    app: './src/main.js',
   },
   output: {
-    filename: "[name].bundle.js",
-    path: resolve("dist"),
-    publicPath: "/",
+    filename: '[name].bundle.js',
+    path: resolve('dist'),
+    publicPath: '/',
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: "vue-loader",
+        loader: 'vue-loader',
         options: {},
       },
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
+        loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
           appendTsSuffixTo: [/\.vue$/],
@@ -35,40 +35,40 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
-        loader: "file-loader",
+        loader: 'file-loader',
         options: {
-          name: "[name].[ext]?[hash]",
+          name: '[name].[ext]?[hash]',
         },
       },
       {
         test: /\.css$/,
-        use: ["vue-style-loader", "css-loader"],
+        use: ['vue-style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,
-        use: ["vue-style-loader", "css-loader", "sass-loader"],
+        use: ['vue-style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(ttf|woff)$/,
-        use: ["url-loader", "file-loader"],
+        use: ['url-loader', 'file-loader'],
       },
     ],
   },
   resolve: {
-    extensions: [".ts", ".js", ".vue", ".json"],
+    extensions: ['*', '.js', '.vue', '.json'],
     alias: {
-      vue$: "vue/dist/vue.esm.js",
-      "@": path.resolve(__dirname, "./examples/"),
-      "@packages": path.resolve(__dirname, "./packages/"),
+      vue$: 'vue/dist/vue.esm.js',
+      '@': path.resolve(__dirname, './examples/'),
+      '@packages': path.resolve(__dirname, './packages/'),
     },
   },
-  devtool: "inline-source-map",
+  devtool: 'inline-source-map',
   devServer: {
     hot: true,
     open: true,
     port: 8000,
     overlay: true,
-    publicPath: "/",
+    publicPath: '/',
     historyApiFallback: true,
   },
   performance: {
@@ -77,9 +77,9 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: "Development",
-      filename: "index.html",
-      template: "./index.html",
+      title: 'Development',
+      filename: 'index.html',
+      template: './index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
@@ -87,4 +87,4 @@ module.exports = {
     }),
     new VueLoaderPlugin(),
   ],
-};
+}
