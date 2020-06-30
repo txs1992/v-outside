@@ -28,9 +28,8 @@
       ],
     },
     "typeRoots": [
-      "./typings",
-      "./node_modules/@types"
-    ]
+      "node_modules/@types"
+    ],
   },
   "include": [
     "packages/**/*",

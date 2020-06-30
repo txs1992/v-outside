@@ -11,7 +11,7 @@ function resolve(dir) {
 module.exports = {
   mode: 'development',
   entry: {
-    app: './src/main.js',
+    app: './examples/main.js',
   },
   output: {
     filename: '[name].bundle.js',
@@ -30,6 +30,7 @@ module.exports = {
         loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
+          transpileOnly: true,
           appendTsSuffixTo: [/\.vue$/],
         },
       },
