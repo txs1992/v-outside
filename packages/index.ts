@@ -1,7 +1,9 @@
-export function bind() {
-  console.log('bind')
+import { DirectiveOptions } from 'vue'
+
+const OutsideDirective: DirectiveOptions = {
+  bind(el: Element, binding: any) {
+    console.log('bind', el, binding)
+  },
 }
 
-export default {
-  name: 'name'
-}
+export default OutsideDirective
